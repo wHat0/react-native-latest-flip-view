@@ -151,15 +151,11 @@ export default function Test() {
     <View>
       <Text>test</Text>
       <FlipView
+        //you can give any styling to the background of the card it can also be used to elevate the cards to give shadows behind
         style={{
           height: "100%",
           width: "80%",
-          alignItems: "center",
-          justifyContent: "center",
-
           backgroundColor: "grey",
-          borderRadius: 28,
-
           shadowColor: "black",
           shadowOffset: {
             width: 0,
@@ -173,7 +169,6 @@ export default function Test() {
         back={renderBack()}
         isFlipped={value}
         flipAxis="y"
-        flipEasing={Easing.out(Easing.ease)}
         flipDuration={500}
         perspective={1000}
       />

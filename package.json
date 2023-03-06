@@ -1,8 +1,9 @@
 {
   "name": "react-native-latest-flip-view",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "JavaScript implementation of a view container that can flip between its front and back",
   "main": "index.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/wHat0/react-native-latest-flip-view/issues"
   },
-  "homepage": "https://github.com/wHat0/react-native-latest-flip-view#readme"
+  "homepage": "https://github.com/wHat0/react-native-latest-flip-view#readme",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  }
 }
