@@ -1,4 +1,5 @@
-# react-native-flip-view
+# react-native-latest-flip-view
+
 JavaScript implementation of a view container that can flip between its front and back
 
 ## Demo
@@ -8,23 +9,17 @@ JavaScript implementation of a view container that can flip between its front an
 ## Installation
 
 ```sh
-npm install react-native-flip-view
+npm install react-native-latest-flip-view
 ```
 
 ## Example
 
 ```js
-var React = require('react-native');
+var React = require("react-native");
 
-var {
-  View,
-  Easing,
-  TouchableOpacity,
-  Text,
-  Component,
-  } = React;
+var { View, Easing, TouchableOpacity, Text, Component } = React;
 
-var FlipView = require('react-native-flip-view');
+var FlipView = require("react-native-latest-flip-view");
 
 export default class Demo extends Component {
   constructor(props) {
@@ -34,23 +29,37 @@ export default class Demo extends Component {
 
   render = () => {
     return (
-      <FlipView style={{flex: 1}}
-                front={this._renderFront()}
-                back={this._renderBack()}
-                isFlipped={this.state.isFlipped}
-                onFlipped={(val) => {console.log('Flipped: ' + val);}}
-                flipAxis="y"
-                flipEasing={Easing.out(Easing.ease)}
-                flipDuration={500}
-                perspective={1000}/>
+      <FlipView
+        style={{ flex: 1 }}
+        front={this._renderFront()}
+        back={this._renderBack()}
+        isFlipped={this.state.isFlipped}
+        onFlipped={(val) => {
+          console.log("Flipped: " + val);
+        }}
+        flipAxis="y"
+        flipEasing={Easing.out(Easing.ease)}
+        flipDuration={500}
+        perspective={1000}
+      />
     );
   };
 
   _renderFront = () => {
     return (
-      <View style={{flex: 1, backgroundColor: '#81D4FA', justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity style={{backgroundColor: 'black', padding: 20}} onPress={this._flip}>
-          <Text style={{fontSize: 32, color: 'white'}}>Flip to Back!</Text>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#81D4FA",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity
+          style={{ backgroundColor: "black", padding: 20 }}
+          onPress={this._flip}
+        >
+          <Text style={{ fontSize: 32, color: "white" }}>Flip to Back!</Text>
         </TouchableOpacity>
       </View>
     );
@@ -58,21 +67,125 @@ export default class Demo extends Component {
 
   _renderBack = () => {
     return (
-      <View style={{flex: 1, backgroundColor: '#1565C0', justifyContent: 'center', alignItems: 'center'}}>
-        <TouchableOpacity style={{backgroundColor: 'black', padding: 20}} onPress={this._flip}>
-          <Text style={{fontSize: 32, color: 'white'}}>Flip to Front!</Text>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#1565C0",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity
+          style={{ backgroundColor: "black", padding: 20 }}
+          onPress={this._flip}
+        >
+          <Text style={{ fontSize: 32, color: "white" }}>Flip to Front!</Text>
         </TouchableOpacity>
       </View>
     );
   };
 
   _flip = () => {
-    this.setState({isFlipped: !this.state.isFlipped});
+    this.setState({ isFlipped: !this.state.isFlipped });
   };
 }
 ```
 
+## Example for Functional components:-
+
+```js
+import React from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  Easing,
+} from "react-native";
+import FlipView from "react-native-latest-flip-view";
+
+export default function Test() {
+  const [value, setValue] = useState(false);
+
+  function renderFront() {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#81D4FA",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity
+          style={{ backgroundColor: "black", padding: 20 }}
+          onPress={() => setValue(true)}
+        >
+          <Text style={{ fontSize: 32, color: "white" }}>Flip to Back!</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  function renderBack() {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#1565C0",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity
+          style={{ backgroundColor: "black", padding: 20 }}
+          onPress={() => setValue(false)}
+        >
+          <Text style={{ fontSize: 32, color: "white" }}>Flip to Front!</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  return (
+    <View>
+      <Text>test</Text>
+      <FlipView
+        style={{
+          height: "100%",
+          width: "80%",
+          alignItems: "center",
+          justifyContent: "center",
+
+          backgroundColor: "grey",
+          borderRadius: 28,
+
+          shadowColor: "black",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.6,
+          shadowRadius: 1.41,
+          elevation: 8,
+        }}
+        front={renderFront()}
+        back={renderBack()}
+        isFlipped={value}
+        flipAxis="y"
+        flipEasing={Easing.out(Easing.ease)}
+        flipDuration={500}
+        perspective={1000}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({});
+```
+
 .babelrc:
+
 ```js
 {
   "retainLines": true,
