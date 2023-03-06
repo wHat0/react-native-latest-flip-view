@@ -8,7 +8,7 @@ JavaScript implementation of a view container that can flip between its front an
 ## Installation
 
 ```sh
-npm install react-native-flip-view
+npm install react-native-latest-flip-view
 ```
 
 ## Example
@@ -24,7 +24,7 @@ var {
   Component,
   } = React;
 
-var FlipView = require('react-native-flip-view');
+var FlipView = require('react-native-latest-flip-view');
 
 export default class Demo extends Component {
   constructor(props) {
@@ -71,6 +71,104 @@ export default class Demo extends Component {
   };
 }
 ```
+
+
+## Example for Functional components:-
+
+import React from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  Easing,
+} from "react-native";
+import FlipView from "react-native-latest-flip-view";
+
+export default function Test() {
+  const [value, setValue] = useState(false);
+
+  function renderFront() {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#81D4FA",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity
+          style={{ backgroundColor: "black", padding: 20 }}
+          onPress={() => setValue(false)}
+        >
+          <Text style={{ fontSize: 32, color: "white" }}>Flip to Back!</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  function renderBack() {
+    return (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#1565C0",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity
+          style={{ backgroundColor: "black", padding: 20 }}
+          onPress={() => setValue(true)}
+        >
+          <Text style={{ fontSize: 32, color: "white" }}>Flip to Front!</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+  return (
+    <View>
+      <Text>test</Text>
+      <FlipView
+        style={{
+          height: "100%",
+          width: "80%",
+          alignItems: "center",
+          justifyContent: "center",
+
+          backgroundColor: "grey",
+          borderRadius: 28,
+
+          shadowColor: "black",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.6,
+          shadowRadius: 1.41,
+          elevation: 8,
+        }}
+        front={renderFront()}
+        back={renderBack()}
+        isFlipped={value}
+        flipAxis="y"
+        flipEasing={Easing.out(Easing.ease)}
+        flipDuration={500}
+        perspective={1000}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({});
+
+
+
+
+
+
 
 .babelrc:
 ```js
