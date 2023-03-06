@@ -75,6 +75,8 @@ export default class Demo extends Component {
 
 ## Example for Functional components:-
 
+```js
+
 import React from "react";
 import {
   View,
@@ -163,7 +165,7 @@ export default function Test() {
 }
 
 const styles = StyleSheet.create({});
-
+```
 
 
 
