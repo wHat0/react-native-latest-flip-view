@@ -65,7 +65,7 @@ class FlipView extends Component {
     };
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  UNSAFE_componentWillReceiveProps = (nextProps) => {
     if (nextProps.isFlipped !== this.props.isFlipped) {
       this.flip();
     }
