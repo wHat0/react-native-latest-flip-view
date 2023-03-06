@@ -103,7 +103,7 @@ export default function Test() {
       >
         <TouchableOpacity
           style={{ backgroundColor: "black", padding: 20 }}
-          onPress={() => setValue(false)}
+          onPress={() => setValue(true)}
         >
           <Text style={{ fontSize: 32, color: "white" }}>Flip to Back!</Text>
         </TouchableOpacity>
@@ -123,7 +123,7 @@ export default function Test() {
       >
         <TouchableOpacity
           style={{ backgroundColor: "black", padding: 20 }}
-          onPress={() => setValue(true)}
+          onPress={() => setValue(false)}
         >
           <Text style={{ fontSize: 32, color: "white" }}>Flip to Front!</Text>
         </TouchableOpacity>
